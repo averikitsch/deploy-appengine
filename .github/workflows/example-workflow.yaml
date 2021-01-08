@@ -17,6 +17,10 @@ on:
     branches:
       - example
 
+defaults:
+  run:
+    working-directory: example-app
+
 name: Deploy to Google App Engine
 
 jobs:
@@ -28,9 +32,8 @@ jobs:
 
       - name: Deploy to App Engine
         id: deploy
-        uses: google-github-actions/deploy-appengine@v0.2.0
+        uses: ./
         with:
-          deliverables: example-app/app.yaml
           project_id: ${{ secrets.GCP_PROJECT }}
           credentials: ${{ secrets.GCP_SA_KEY }}
 
