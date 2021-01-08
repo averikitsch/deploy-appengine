@@ -26,6 +26,7 @@ async function run(): Promise<void> {
   try {
     core.info("WORKING DIR")
     core.info(process.cwd());
+    core.info(process.env['GITHUB_WORKSPACE'] ?? "");
     // Get action inputs.
     let projectId = core.getInput('project_id');
     const deliverables = core.getInput('deliverables');

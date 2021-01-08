@@ -2601,11 +2601,13 @@ const setupGcloud = __importStar(__webpack_require__(994));
 exports.GCLOUD_METRICS_ENV_VAR = 'CLOUDSDK_METRICS_ENVIRONMENT';
 exports.GCLOUD_METRICS_LABEL = 'github-actions-deploy-appengine';
 function run() {
+    var _a;
     return __awaiter(this, void 0, void 0, function* () {
         core.exportVariable(exports.GCLOUD_METRICS_ENV_VAR, exports.GCLOUD_METRICS_LABEL);
         try {
             core.info("WORKING DIR");
             core.info(process.cwd());
+            core.info((_a = process.env['GITHUB_WORKSPACE']) !== null && _a !== void 0 ? _a : "");
             // Get action inputs.
             let projectId = core.getInput('project_id');
             const deliverables = core.getInput('deliverables');
