@@ -34,8 +34,9 @@ jobs:
         id: deploy
         uses: ./
         with:
-          project_id: ${{ secrets.GCP_PROJECT }}
-          credentials: ${{ secrets.GCP_SA_KEY }}
+          deliverables: app.yaml
+          # project_id: ${{ secrets.GCP_PROJECT }}
+          # credentials: ${{ secrets.GCP_SA_KEY }}
 
       - name: Show Output
         run: echo ${{ steps.deploy.outputs.url }}
