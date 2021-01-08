@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: app
+        working-directory: example-app/
     steps:
       - name: Checkout
         uses: actions/checkout@v2
