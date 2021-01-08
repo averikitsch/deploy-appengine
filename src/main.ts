@@ -24,7 +24,8 @@ export const GCLOUD_METRICS_LABEL = 'github-actions-deploy-appengine';
 async function run(): Promise<void> {
   core.exportVariable(GCLOUD_METRICS_ENV_VAR, GCLOUD_METRICS_LABEL);
   try {
-    console.log(process.cwd());
+    core.info("WORKING DIR")
+    core.info(process.cwd());
     // Get action inputs.
     let projectId = core.getInput('project_id');
     const deliverables = core.getInput('deliverables');

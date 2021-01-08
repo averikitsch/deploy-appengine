@@ -2604,7 +2604,8 @@ function run() {
     return __awaiter(this, void 0, void 0, function* () {
         core.exportVariable(exports.GCLOUD_METRICS_ENV_VAR, exports.GCLOUD_METRICS_LABEL);
         try {
-            console.log(process.cwd());
+            core.info("WORKING DIR");
+            core.info(process.cwd());
             // Get action inputs.
             let projectId = core.getInput('project_id');
             const deliverables = core.getInput('deliverables');
