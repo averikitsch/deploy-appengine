@@ -1,6 +1,10 @@
 name: deploy-appengine Unit
 
-on: [push, pull_request]
+on: 
+  push:
+    branches-ignore: 
+    - 'example-*'
+  pull_request:
 
 jobs:
   run:

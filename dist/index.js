@@ -2598,6 +2598,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(__webpack_require__(470));
 const exec = __importStar(__webpack_require__(986));
 const setupGcloud = __importStar(__webpack_require__(994));
+const fs = __webpack_require__(747);
 exports.GCLOUD_METRICS_ENV_VAR = 'CLOUDSDK_METRICS_ENVIRONMENT';
 exports.GCLOUD_METRICS_LABEL = 'github-actions-deploy-appengine';
 function run() {
@@ -2608,6 +2609,9 @@ function run() {
             core.info("WORKING DIR");
             core.info(process.cwd());
             core.info((_a = process.env['GITHUB_WORKSPACE']) !== null && _a !== void 0 ? _a : "");
+            fs.readdirSync(process.cwd()).forEach((file) => {
+                console.log(file);
+            });
             // Get action inputs.
             let projectId = core.getInput('project_id');
             const deliverables = core.getInput('deliverables');

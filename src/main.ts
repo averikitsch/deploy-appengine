@@ -17,6 +17,7 @@
 import * as core from '@actions/core';
 import * as exec from '@actions/exec';
 import * as setupGcloud from '../setupGcloudSDK/src/';
+const fs = require('fs');
 
 export const GCLOUD_METRICS_ENV_VAR = 'CLOUDSDK_METRICS_ENVIRONMENT';
 export const GCLOUD_METRICS_LABEL = 'github-actions-deploy-appengine';
@@ -27,6 +28,9 @@ async function run(): Promise<void> {
     core.info("WORKING DIR")
     core.info(process.cwd());
     core.info(process.env['GITHUB_WORKSPACE'] ?? "");
+    fs.readdirSync(process.cwd()).forEach((file: any) => {
+      console.log(file);
+    });
     // Get action inputs.
     let projectId = core.getInput('project_id');
     const deliverables = core.getInput('deliverables');
