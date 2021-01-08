@@ -29,7 +29,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
+      - run: pwd; ls;
+      - run: echo $GITHUB_WORKSPACE
       - name: Deploy to App Engine
         id: deploy
         uses: ./
